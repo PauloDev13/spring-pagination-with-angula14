@@ -1,17 +1,19 @@
 spring:
   jackson:
-    default-property-inclusion: NON_NULL
+      default-property-inclusion: NON_NULL
   datasource:
-    url: jdbc:h2:mem:paginationdb
-    password:
-    username: sa
+    url: jdbc:mariadb://localhost/paginationdb
+#    url: jdbc:h2:mem:paginationdb;NON_KEYWORDS=USER
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: root
+    password: root
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
+    database-platform: org.hibernate.dialect.MariaDB10Dialect
     generate-ddl: true
     show-sql: true
     hibernate:
       ddl-auto: update
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.H2Dialect
+        dialect: org.hibernate.dialect.MariaDB10Dialect
         format_sql: true
