@@ -9,15 +9,14 @@ import { Page } from '../interface/page';
   providedIn: 'root',
 })
 export class UserService {
-  private readonly baseUrl = 'http://localhost:8080';
+  // private readonly baseUrl = 'users';
 
   constructor(private httpClient: HttpClient) {}
 
   users$ = (name = '', page = 0, size = 10): Observable<GetUsersResponse<Page>> =>
     this.httpClient.get<GetUsersResponse<Page>>(
-      `${this.baseUrl}/users?name=${name}&page=${page}&size=${size}`,
+      `users?name=${name}&page=${page}&size=${size}`,
     );
-
   // getUsers(name = '', page = 0, size = 10): Observable<any> {
   //   return this.httpClient.get<any>(
   //     `${this.baseUrl}/users?name=${name}&page=${page}&size=${size}`,
