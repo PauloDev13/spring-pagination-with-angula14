@@ -96,13 +96,19 @@
                   <span aria-hidden="true">&laquo; Previous</span>
                 </a>
               </li>
-              <li
-                *ngFor="let pageNumber of [].constructor(state.appData.data.page.totalPages); let i = index"
-                [ngClass]="i == (currentPage$ | async) ? ' active' : ''"
-                class="page-item pointer"
-              >
-                <a (click)="goToPage('', i)" class="page-link">{{ i + 1 }}</a>
+              <li class="page-item">
+                <a class="page-link" style="color: black">
+                  Página {{ state.appData.data.page.pageable.pageNumber + 1 }} de
+                  {{ state.appData.data.page.totalPages }}</a
+                >
               </li>
+              <!--              <li-->
+              <!--                *ngFor="let pageNumber of [].constructor(state.appData.data.page.totalPages); let i = index"-->
+              <!--                [ngClass]="i == (currentPage$ | async) ? ' active' : ''"-->
+              <!--                class="page-item pointer"-->
+              <!--              >-->
+              <!--                <a (click)="goToPage('', i)" class="page-link">{{ i + 1 }}</a>-->
+              <!--              </li>-->
               <li
                 [ngClass]="state.appData.data.page.totalPages - 1 == (currentPage$ | async) ? ' disabled' : ''"
                 class="page-item pointer"
