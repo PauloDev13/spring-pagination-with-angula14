@@ -14,9 +14,7 @@ export class UserService {
   constructor(private httpClient: HttpClient) {}
 
   users$ = (name = '', page = 0, size = 10): Observable<GetUsersResponse<Page>> =>
-    this.httpClient.get<GetUsersResponse<Page>>(
-      `users?name=${name}&page=${page}&size=${size}`,
-    );
+    this.httpClient.get<GetUsersResponse<Page>>(`users?name=${name}&page=${page}&size=${size}`);
   // getUsers(name = '', page = 0, size = 10): Observable<any> {
   //   return this.httpClient.get<any>(
   //     `${this.baseUrl}/users?name=${name}&page=${page}&size=${size}`,
